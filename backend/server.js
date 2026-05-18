@@ -18,6 +18,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/ai', aiRoutes);
 
+// Root route to check if API is running
+app.get('/', (req, res) => {
+    res.json({ status: 'API is running successfully!' });
+});
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
